@@ -3,11 +3,11 @@ import logo from './logo.svg';
 import './App.css';
 import { Select } from 'antd'
 import 'antd/dist/antd.css';
-import { observer } from 'mobx-react'
-import { autorun } from 'mobx'
+import { observer, inject } from 'mobx-react'
 
 const { Option } = Select
 
+@inject('appStore')
 @observer
 class App extends Component {
   constructor(props) {
@@ -19,6 +19,7 @@ class App extends Component {
 
   render() {
     const { appStore: { list } } = this.props
+    console.log(list)
     return (
       <div className="App">
         <header className="App-header">
